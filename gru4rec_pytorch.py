@@ -647,8 +647,9 @@ class GRU4Rec:
         if self.logq and self.loss == "cross-entropy":
             pop = data.groupby(item_key).size()
             self.P0 = torch.tensor(
-                pop[self.data_iterator.itemidmap.index.values],
-                dtype=torch.float32,
+                pop[self.data_iterator.itemidmap.index.values].to_numpy(
+                    dtype="float32"
+                ),
                 device=self.device,
             )
         model = GRU4RecModel(

@@ -172,7 +172,7 @@ def set_seed(seed=1):
         torch.backends.cudnn.benchmark = False
 
 
-set_seed(42)
+set_seed(1)
 
 
 def load_data(fname, args):
